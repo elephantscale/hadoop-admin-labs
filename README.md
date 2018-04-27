@@ -1,6 +1,6 @@
-<link rel='stylesheet' href='assets/main.css'/>
+<link rel='stylesheet' href='assets/css/main.css'/>
 
-Hadoop-admin Labs
+Hadoop Admin Labs
 =================
 Welcome to Hadoop-admin labs bundle.
 
