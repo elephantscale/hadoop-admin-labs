@@ -3,19 +3,50 @@
 Instructor:
 
 * spin up our Hadoop image
-* t2.xlarge instances, or t2.2xlarge
+* instances :
+    - i3.xlarge (4 vcpu + 30G mem + ~1TB SSD + High network ) -- 31c / hr
+    - m2.xlarge (4 vcpu + 30G mem + 850 G SSD + Moderate network) -- 49c / hr
 
 ### NOTE
 
 Lately, all Ambari installs appear broken on our CentOS images. You may have more success with Ubuntu.
 In any case, plan ahead and leave more time for install.
 
-### STEP 1) 
+Ambari 2.6 has issues installing on Ubuntu machine.  It is not installing ambari-agent on hosts automatically using SSH auto login.  You have to install agenets manually on each host.  Really annoying.
+     https://community.hortonworks.com/questions/16281/install-ambari-agent-on-each-hosts.html
+
+### STEP 1)
 Login to one machine instance to install Ambari
+
+Ambari 2.6.1
+    https://cwiki.apache.org/confluence/display/AMBARI/Installation+Guide+for+Ambari+2.6.1
+
+Ambari 2.4 docs
+http://docs.hortonworks.com/HDPDocuments/Ambari-2.4.2.0/bk_ambari-installation/content/ch_Getting_Ready.html
+
 
 
 ### STEP 2)
 Execute these steps in terminal (hint: always accept all defaults :)
+
+#### Ubuntu 16.04
+```bash
+    sudo wget -O /etc/apt/sources.list.d/ambari.list http://public-repo-1.hortonworks.com/ambari/ubuntu16/2.x/updates/2.6.1.5/ambari.list
+
+    sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9733A7A07513CAD
+
+    sudo apt-get update
+
+    sudo apt-get install -y  ambari-server
+
+    sudo ambari-server setup
+        # keep hitting enter to accept default values
+
+    sudo ambari-server start
+
+    sudo ambari-server status
+
+```
 
 #### Centos 7 or RHEL 7
 
@@ -35,18 +66,18 @@ sudo yum-config-manager --enable rhui-REGION-rhel-server-optional
 #### Point your browser to ambari server's hostname and port 8080
 	http://your_ambar_server:8080
 
-#### Login using: 
+#### Login using:
 Username = admin
-Password = admin 
+Password = admin
 
 
 ## STEP 3) install guide
 
 * give a name to your cluster
 * select HDP 2.x
-* input host names (use private IPs) 
+* input host names (use private IPs)
   * ssh key will be provided by instructor  (hi1.pem)
-  * user name: ec2-user
+  * user name: ec2-user in Centos ,   ubuntu in Ubuntu
 * for service allocation, accept the defaults
 * install clients on all nodes
 * password: admin for all services
@@ -59,4 +90,3 @@ Setup the home hdfs directory
 
     $  sudo -u hdfs  hdfs  dfs -mkdir /user/$USER
     $  sudo -u hdfs  hdfs  dfs -chown $USER  /user/$USER
-
