@@ -50,9 +50,12 @@ Execute these steps in terminal (hint: always accept all defaults :)
 
 Set up the repo (notice the version)
 
-    sudo wget -nv http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.6.0.0/ambari.repo -O /etc/yum.repos.d/ambari.repo
+    sudo wget -nv http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.6.2.0/ambari.repo -O /etc/yum.repos.d/ambari.repo
+
 	sudo yum install -y ambari-server
+
 	sudo ambari-server setup
+
 	sudo ambari-server start
 
 Currently (10/29/2017) this version of Hadoop (2.5.2) fails on CentOS7.
@@ -98,7 +101,7 @@ Password = admin
                 hostname=a.b.c.d.internal
 
             sudo ambari-agent start
-            
+
             sudo systemctl enable ambari-agent
         done
 
