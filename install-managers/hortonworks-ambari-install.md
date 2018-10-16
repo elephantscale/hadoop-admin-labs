@@ -7,6 +7,24 @@ Instructor:
     - i3.xlarge (4 vcpu + 30G mem + ~1TB SSD + High network ) -- 31c / hr
     - m2.xlarge (4 vcpu + 30G mem + 850 G SSD + Moderate network) -- 49c / hr
 
+## Summary
+
+On the master
+
+    sudo wget -O /etc/apt/sources.list.d/ambari.list http://public-repo-1.hortonworks.com/ambari/ubuntu16/2.x/updates/2.6.1.5/ambari.list
+    sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9733A7A07513CAD
+    sudo apt update
+    sudo apt-get install -y ambari-server
+    sudo ambari-server setup 
+    sudo ambari-server start
+    
+On each server, add
+    
+    sudo wget -O /etc/apt/sources.list.d/ambari.list http://public-repo-1.hortonworks.com/ambari/ubuntu16/2.x/updates/2.6.1.5/ambari.list
+    sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9733A7A07513CAD
+    sudo apt update
+    sudo apt install ambari-agent
+
 ### NOTE
 
 Lately, all Ambari installs appear broken on our CentOS images. You may have more success with Ubuntu.

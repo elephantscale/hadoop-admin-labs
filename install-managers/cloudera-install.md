@@ -16,7 +16,13 @@ CDH5
     wget http://archive.cloudera.com/cm5/installer/latest/cloudera-manager-installer.bin
     chmod +x cloudera-manager-installer.bin
     sudo ./cloudera-manager-installer.bin
+    
+CDH6
 
+    wget https://archive.cloudera.com/cm6/6.0.0/cloudera-manager-installer.bin    
+    chmod u+x cloudera-manager-installer.bin
+    sudo ./cloudera-manager-installer.bin
+    
 Note: setting swappiness below is not required if you are using ES AMI hadoop-clean-V16 or later
 
 Set swappiness to 0 on every node, like this:
