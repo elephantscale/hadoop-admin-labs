@@ -6,15 +6,17 @@
 
 #### STEP 1)  Login to the instance
 Recommended instance types
-    AMI : ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20180912 (ami-059eeca93cf09eebd)
+    AMI : ubuntu 16.06 - ami-0f9cf087c1f27d9b1
 
     type : memory 64G recommended -
         r2.xl = 30 G
         r4.2xl = 64G memory
 
- Use the instance provided by the instructor, log in using SSH
- e.g
-    ssh -i  ssh-key.pem   ubuntu@host_name
+ - pick one machine for Cloudera Manager.
+ - login with key
+ ```
+    ssh -i  hi1.pem   ubuntu@host_name
+```
 
 (On ubuntu $USER = ubuntu,  On CentOS $USER = ec2-user)
 
@@ -96,7 +98,8 @@ So students can login easily without the need for key.
 ```
 -  reload ssh
 ```
-    $ ssh service ssh reload
+    $  sudo /etc/init.d/ssh restart
+    $ sudo service ssh reload
 ```
 - try to remote login to the machine without ssh key and with password
 
