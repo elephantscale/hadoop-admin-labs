@@ -14,6 +14,8 @@ To instructor:
     
     wget http://mirrors.gigenet.com/apache/hadoop/common/hadoop-2.4.0/hadoop-2.4.0.tar.gz
 
+    Note: you can use a later version but be ready to change some parameters.
+
 ### STEP 2) 
   
   Unpack Hadoop files
@@ -68,6 +70,8 @@ To instructor:
       sudo chown yarn:hadoop . -R
 
 ### STEP 6) Configure
+
+* (Note) Instead of 'localhost' you may want to use the EC2 internal ip, similar to ip-172-16-0-240
 
 * From the same hadoop root install directory as in step 5), edit the core site configuration
   
