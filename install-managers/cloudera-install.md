@@ -86,7 +86,7 @@ So students can login easily without the need for key.
 ```
 - edit this File
 ```
-    $  sudo vi /etc/ssh/sshd_config`
+    $  sudo vi /etc/ssh/sshd_config
 ```
 - Find the line
 ```
