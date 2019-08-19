@@ -24,7 +24,7 @@ Recommended instance types
 
 CDH6
 ```bash
-    wget https://archive.cloudera.com/cm6/6.0.0/cloudera-manager-installer.bin    
+    wget https://archive.cloudera.com/cm6/6.3.0/cloudera-manager-installer.bin    
     chmod u+x cloudera-manager-installer.bin
     sudo ./cloudera-manager-installer.bin
 ```
