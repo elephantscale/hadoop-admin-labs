@@ -4,32 +4,50 @@ To instructor :
     - each student can install sqoop on his node in the cluster. Alternatively, they can work in groups, so that each group has a node assigned to it
     - each student can work in his own copy of the directory, generating data under his or her name
 
-### STEP 1)  Installing MySQL (if it is not installed)
+### STEP 1)  Installing MySQL
  
-      yum install mysql-server mysql php-mysql  
-      chkconfig --levels 235 mysqld on #Set the MySQL service to start on boot
-      service mysqld start #Start the MySQL service
-      mysql -u root #Log into MySQL
-      exit #Exit MySQL
-  
+* Instructor - the MySQL server is already set up
+* It responds to `mysql -u student -h 18.204.130.92 -p` from any server
+* Password is Bingobob123!
 
 ### STEP 2) Load the log data into the table
-  
-* Generate the data using the scripts in `hadoop-admin-labs/data` (unless you did it before)
-  
-* Load data
- 
-    * Login to the database
-  
-            mysql -u root
-  
-    * Create the database
- 
-            create database training  
-            use training
 
-            create the table, based on the data you will be using (see below), such as
-            CREATE TABLE mylogs (message_type VARCHAR(20), m1 VARCHAR(20), m2 VARCHAR(20), m3 VARCHAR(20), m4 VARCHAR(20), m5 VARCHAR(20))
+* Here is what is in the database now (see below)
+* Login and verify this
+
+```text  
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| training           |
++--------------------+
+2 rows in set (0.05 sec)
+
+MariaDB [(none)]> use training;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [training]> describe mylogs;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| message_type | varchar(20) | YES  |     | NULL    |       |
+| m1           | varchar(20) | YES  |     | NULL    |       |
+| m2           | varchar(20) | YES  |     | NULL    |       |
+| m3           | varchar(20) | YES  |     | NULL    |       |
+| m4           | varchar(20) | YES  |     | NULL    |       |
+| m5           | varchar(20) | YES  |     | NULL    |       |
+| m6           | varchar(20) | YES  |     | NULL    |       |
+| m7           | varchar(20) | YES  |     | NULL    |       |
+| m8           | varchar(20) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+9 rows in set (0.05 sec)
+
+```
 
 ### STEP 3) Installing sqoop (if not installed)
 
