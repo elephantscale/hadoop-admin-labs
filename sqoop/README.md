@@ -5,12 +5,9 @@ To instructor :
 * each student can work in his own copy of the directory, generating data under his or her name
 * each student can install sqoop on his node in the cluster.
 
-### STEP 1)  Installing MySQL
+### STEP 1)  Getting a MySQL to use
  
-* Instructor - the MySQL server is already set up
-* It responds to `mysql -u student -h 18.204.130.92 -p` from any server
-* Password is Bingobob123!
-* If it is not up but stopped, bring it up and connect to the elastic ip marked as 'mariadb'
+* See [common labs](https://github.com/elephantscale/common-labs/blob/master/README.md)
 
 ### STEP 2) Load the log data into the table
 
