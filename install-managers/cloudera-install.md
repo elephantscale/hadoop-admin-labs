@@ -23,6 +23,7 @@ CDH6
     chmod u+x cloudera-manager-installer.bin
     sudo ./cloudera-manager-installer.bin
 ```
+Note: Using version 6.3.1 will also work, 6.3.2 link is broken, and 6.3.3. requires a subscription
 
 Note: setting swappiness below is not very important
 
