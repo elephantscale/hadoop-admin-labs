@@ -1,14 +1,14 @@
 # This lab teaches the use of Cloudera Manager (CM)
 
 (For instructor)
-- UI guide is in : /hadoop-training/doc/Installing_Cloudera_Cluster_on_EC2_Public.docx.
+- UI guide is in: /hadoop-training/doc/Installing_Cloudera_Cluster_on_EC2_Public.docx.
 - hosts given to students should be launched in the "hadoop" security group, same as CM
 
 #### STEP 1)  Login to the instance
 Recommended instance types
-    AMI : ubuntu 16.06 - ami-0f9cf087c1f27d9b1
+    AMI: ubuntu 16.06 - ami-0f9cf087c1f27d9b1
 
-    type : memory 64G recommended -
+    type: memory 64G recommended -
         r2.xl = 30 G
         r4.2xl = 64G memory
 
@@ -54,8 +54,8 @@ Set swappiness to 0 on every node, like this:
 
 ### Step 5: Configure student profile in CM
 - Administration --> New User
-- user name : student,   password : what ever
-- role : readonly
+- user name: student,   password : what ever
+- role: readonly
 - this is the credential we give out to students
 
 #### STEP 6) Create a home directory in HDFS
@@ -74,7 +74,7 @@ Set swappiness to 0 on every node, like this:
 * Explore File Manager / Job Manager
 
 
-#### Step 7 : Enable password less SSH on one client machine
+#### Step 7) Enable passwordless SSH on one client machine
 Only need to do it on ONE machine.  
 So students can login easily without the need for key.
 
