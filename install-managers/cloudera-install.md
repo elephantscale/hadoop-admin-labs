@@ -1,16 +1,11 @@
 # This lab teaches the use of Cloudera Manager (CM)
 
-(For instructor)
-- UI guide is in: /hadoop-training/doc/Installing_Cloudera_Cluster_on_EC2_Public.docx.
-- hosts given to students should be launched in the "hadoop" security group, same as CM
 
 #### STEP 1)  Login to the instance
 Recommended instance types
-    AMI: ubuntu 16.06 - ami-0f9cf087c1f27d9b1
+    AMI: ubuntu 16 from AWS wizard
 
-    type: memory 64G recommended -
-        r2.xl = 30 G
-        r4.2xl = 64G memory
+    type: anything with 32 GB of RAM or more
 
  - pick one machine for Cloudera Manager.
  - login with key
@@ -28,8 +23,9 @@ CDH6
     chmod u+x cloudera-manager-installer.bin
     sudo ./cloudera-manager-installer.bin
 ```
+Note: Using version 6.3.1 will also work, 6.3.2 link is broken, and 6.3.3. requires a subscription
 
-Note: setting swappiness below is not required if you are using ES AMI hadoop-clean-V16 or later
+Note: setting swappiness below is not very important
 
 Set swappiness to 0 on every node, like this:
 
@@ -52,13 +48,7 @@ Set swappiness to 0 on every node, like this:
 * Finish up the install with the wizard
 
 
-### Step 5: Configure student profile in CM
-- Administration --> New User
-- user name: student,   password : what ever
-- role: readonly
-- this is the credential we give out to students
-
-#### STEP 6) Create a home directory in HDFS
+#### STEP 5) Create a home directory in HDFS
 - Login to 'client' node
 - setup HDFS directories as follows
 ```bash
@@ -72,11 +62,6 @@ Set swappiness to 0 on every node, like this:
 * Click on HDFS service,  Check out Namenode WebUI
 * Click on 'Hue' service.  Access Hue Web UI
 * Explore File Manager / Job Manager
-
-
-#### Step 7) Enable passwordless SSH on one client machine
-Only need to do it on ONE machine.  
-So students can login easily without the need for key.
 
 - Login to the node via ssh (using key)
 - set the password to ubuntu user as follows
@@ -103,6 +88,11 @@ So students can login easily without the need for key.
 ```
 - try to remote login to the machine without ssh key and with password
 
+
+#### STEP 7) Explore the cluster
+
+* Close the hadoop-labs repository to the CM node
+* Run the script to create data for HIVE
 
 ### Optional steps
 Note that this is not required if you are using ES AMI hadoop-clean-V16 or later.
