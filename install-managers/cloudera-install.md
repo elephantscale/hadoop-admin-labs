@@ -3,9 +3,11 @@
 
 #### STEP 1)  Login to the instance
 Recommended instance types
-    AMI: ubuntu 16 from AWS wizard
+    AMI: ubuntu 18.04 LTS
+    instance type :
+        - i3.xlarge (4 vcpu + 30G mem + ~1TB SSD + High network ) -- 31c / hr
+        - m2.xlarge (4 vcpu + 30G mem + 850 G SSD + Moderate network) -- 49c / hr
 
-    type: anything with 32 GB of RAM or more
 
  - pick one machine for Cloudera Manager.
  - login with key
@@ -19,7 +21,8 @@ Recommended instance types
 
 CDH6
 ```bash
-    wget https://archive.cloudera.com/cm6/6.3.0/cloudera-manager-installer.bin      # v6.3
+    #wget https://archive.cloudera.com/cm6/6.3.0/cloudera-manager-installer.bin      # v6.3
+    wget https://archive.cloudera.com/cm6/6.3.1/cloudera-manager-installer.bin    
     #wget http://archive.cloudera.com/cm7/7.1.3/cloudera-manager-installer.bin      # v7.1.3 if you want cdh7
     chmod u+x cloudera-manager-installer.bin
     sudo ./cloudera-manager-installer.bin
@@ -46,7 +49,7 @@ Set swappiness to 0 on every node, like this:
 * In the browser, login with admin/admin.
 * change the password immediately
 * Select Standard License
-* Provide **internal IPs** of the servers that will go into the cluster
+* Provide **internal Hostnames** of the servers that will go into the cluster
 * Finish up the install with the wizard
 
 
